@@ -11,10 +11,6 @@ public class AspectContainerTests {
 		public IContainer container { get; set; }
 	}
 
-	private class AltTestAspect : IAspect {
-		public IContainer container { get; set; }
-	}
-
 	[Test]
 	public void TestContainerCanAddAspect() {
 		var container = new Container ();
@@ -28,6 +24,10 @@ public class AspectContainerTests {
 		container.AddAspect<TestAspect> ("Test1");
 		container.AddAspect<TestAspect> ("Test2");
 		Assert.AreEqual (container.Aspects().Count, 2);
+	}
+
+	private class AltTestAspect : IAspect {
+  		public IContainer container { get; set; }
 	}
 
 	[Test]
